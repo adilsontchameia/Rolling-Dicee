@@ -13,6 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //
+  var leftDice = 1;
+  var rightDice = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,15 +27,16 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Row(
           children: [
+            //TextButtons e FlatButton, tem como padrao padding 16
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {},
                 child: Image.asset("dice1.png"),
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {},
                 child: Image.asset("dice1.png"),
               ),
             ),
