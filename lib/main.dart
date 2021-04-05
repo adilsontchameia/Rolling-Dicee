@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +16,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   //
-  var leftDice = 1;
-  var rightDice = 2;
+  int leftDice = 1;
+  int rightDice = 2;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +33,29 @@ class _HomeState extends State<Home> {
             //TextButtons e FlatButton, tem como padrao padding 16
             Expanded(
               child: TextButton(
-                onPressed: () {},
-                child: Image.asset("dice1.png"),
+                onPressed: () {
+                  //Mudando estado(imagem), ao clicar
+                  setState(
+                    () {
+                      //Rondomizar os numeros de 1 - 6
+                      leftDice = Random().nextInt(6) + 1;
+                    },
+                  );
+                },
+                child: Image.asset("dice$leftDice.png"),
               ),
             ),
             Expanded(
               child: TextButton(
-                onPressed: () {},
-                child: Image.asset("dice1.png"),
+                onPressed: () {
+                  //Mudando estado(imagem), ao clicar
+                  setState(
+                    () {
+                      rightDice = Random().nextInt(6) + 1;
+                    },
+                  );
+                },
+                child: Image.asset("dice$rightDice.png"),
               ),
             ),
           ],
