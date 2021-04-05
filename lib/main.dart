@@ -39,6 +39,7 @@ class _HomeState extends State<Home> {
                     () {
                       //Rondomizar os numeros de 1 - 6
                       leftDice = Random().nextInt(6) + 1;
+                      rightDice = Random().nextInt(6) + 1;
                     },
                   );
                 },
@@ -51,6 +52,7 @@ class _HomeState extends State<Home> {
                   //Mudando estado(imagem), ao clicar
                   setState(
                     () {
+                      leftDice = Random().nextInt(6) + 1;
                       rightDice = Random().nextInt(6) + 1;
                     },
                   );
