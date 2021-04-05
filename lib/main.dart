@@ -15,9 +15,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //
+  //variaveis
   int leftDice = 1;
   int rightDice = 2;
+  //Metodos para gerar imagens
+  _gerarImagens() {
+    setState(
+      () {
+        //Rondomizar os numeros de 1 - 6
+        leftDice = Random().nextInt(6) + 1;
+        rightDice = Random().nextInt(6) + 1;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +45,7 @@ class _HomeState extends State<Home> {
               child: TextButton(
                 onPressed: () {
                   //Mudando estado(imagem), ao clicar
-                  setState(
-                    () {
-                      //Rondomizar os numeros de 1 - 6
-                      leftDice = Random().nextInt(6) + 1;
-                      rightDice = Random().nextInt(6) + 1;
-                    },
-                  );
+                  _gerarImagens();
                 },
                 child: Image.asset("dice$leftDice.png"),
               ),
@@ -50,12 +54,7 @@ class _HomeState extends State<Home> {
               child: TextButton(
                 onPressed: () {
                   //Mudando estado(imagem), ao clicar
-                  setState(
-                    () {
-                      leftDice = Random().nextInt(6) + 1;
-                      rightDice = Random().nextInt(6) + 1;
-                    },
-                  );
+                  _gerarImagens();
                 },
                 child: Image.asset("dice$rightDice.png"),
               ),
